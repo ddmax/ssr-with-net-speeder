@@ -1,6 +1,6 @@
 # ssr-with-net-speeder
-FROM ubuntu:14.04.3
-MAINTAINER malaohu <tua@live.cn>
+FROM ubuntu:14.04
+MAINTAINER ddMax <logumb@gmail.com>
 
 RUN apt-get update && \
 apt-get clean  
@@ -12,7 +12,7 @@ RUN echo "root:password"|chpasswd
 RUN sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
 	sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 
-RUN git clone -b manyuser https://github.com/shadowsocksr/shadowsocksr.git ssr
+RUN git clone -b manyuser https://github.com/shadowsocksrr/shadowsocksr.git ssr
 RUN git clone https://github.com/snooda/net-speeder.git net-speeder
 WORKDIR net-speeder
 RUN sh build.sh
